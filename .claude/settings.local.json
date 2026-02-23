@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(where:*)",
-      "Bash(bash -n \"c:/Syncthing/GitHub/Reset_Syncthing_on_Pi/reset-syncthing.sh\")",
-      "Bash(echo:*)"
-    ]
-  }
-}
