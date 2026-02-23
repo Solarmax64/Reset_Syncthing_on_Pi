@@ -1,0 +1,65 @@
+# reset-syncthing.sh - Configuration File
+#
+# Copy this file to /etc/reset-syncthing/config.conf to persist settings:
+#   sudo mkdir -p /etc/reset-syncthing
+#   sudo cp config.conf.example /etc/reset-syncthing/config.conf
+#
+# Or use: sudo ./reset-syncthing.sh --init-config
+#
+# CLI arguments always override values set here.
+# Lines starting with # are comments. Blank lines are ignored.
+
+# ─── User & Paths ────────────────────────────────────────────────────────────
+
+# Target user account that will run Syncthing.
+# Default: auto-detected from SUDO_USER, or "pi" if it exists.
+# PI_USER="pi"
+
+# Directory used as the default shared folder.
+# Default: /home/<PI_USER>/syncthing
+# SHARE_DIR="/home/pi/syncthing"
+
+# ─── Network ─────────────────────────────────────────────────────────────────
+
+# Web GUI bind address (IP:port). Use 0.0.0.0 to listen on all interfaces,
+# or 127.0.0.1 to restrict to localhost only.
+# GUI_BIND="0.0.0.0:8384"
+
+# Syncthing sync protocol ports (TCP and UDP/QUIC).
+# ST_TCP_PORT="22000"
+# ST_UDP_PORT="22000"
+
+# Local discovery broadcast port (UDP).
+# ST_DISCOVERY_PORT="21027"
+
+# ─── GUI Authentication ──────────────────────────────────────────────────────
+#
+# Set these to enable GUI authentication during setup.
+# If omitted, the GUI will have NO authentication (you should set a password
+# manually via the web UI immediately after installation).
+#
+# WARNING: The password is stored in plaintext in this file. Ensure this file
+# has restricted permissions (chmod 0600). Consider using CLI flags instead:
+#   sudo ./reset-syncthing.sh --gui-user admin --gui-password yourpassword
+#
+# GUI_USER=""
+# GUI_PASSWORD=""
+
+# ─── Behavior ────────────────────────────────────────────────────────────────
+
+# Skip the package purge step (keeps existing packages, only reconfigures).
+# SKIP_PURGE="false"
+
+# Skip the APT install step (use an already-installed Syncthing binary).
+# SKIP_INSTALL="false"
+
+# Skip firewall (ufw) configuration.
+# SKIP_FIREWALL="false"
+
+# Non-interactive mode: skip all confirmation prompts (same as --yes).
+# AUTO_YES="false"
+
+# ─── Logging ─────────────────────────────────────────────────────────────────
+
+# Log file location. Set to "" or use --no-log to disable.
+# LOG_FILE="/var/log/reset-syncthing.log"
