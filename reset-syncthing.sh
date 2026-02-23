@@ -12,7 +12,7 @@
 # Usage: sudo ./reset-syncthing.sh [OPTIONS]
 #        Run with --help for full usage information.
 #
-# Repository: https://github.com/bdort/Reset_Syncthing_on_Pi
+# Repository: https://github.com/Solarmax64/Reset_Syncthing_on_Pi
 # License:    MIT
 #
 set -euo pipefail

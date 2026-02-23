@@ -1,6 +1,9 @@
 # Reset Syncthing
 
-A production-ready Bash script that completely resets and reinstalls [Syncthing](https://syncthing.net/) on Debian-based Linux systems. Originally built for Raspberry Pi, it works on any system running Raspberry Pi OS, Debian 11+, or Ubuntu 22.04+.
+A production-ready Bash script that completely resets and reinstalls [Syncthing](https://syncthing.net/) on Debian-based Linux systems. Originally built for Raspberry Pi, it works on any system running recent versions of Raspberry Pi OS. Should also work on recent versions of Debian, or Ubuntu.
+
+This was built for personal use and was completely created using vibe coding, and extensive testing and revisions iterations using Claude Code (http://claude.com/product/claude-code). 
+
 
 ## What It Does
 
@@ -9,6 +12,33 @@ A production-ready Bash script that completely resets and reinstalls [Syncthing]
 3. **Installs** the latest Syncthing from the official APT repository
 4. **Configures** a fresh instance with a shared folder, systemd service, and optional firewall rules
 5. **Optionally** sets up GUI authentication during install
+
+## Installation
+
+### Prerequisites
+
+- A Debian-based Linux system (Raspberry Pi OS, Debian 11+, or Ubuntu 22.04+)
+- `sudo` / root access
+- `curl` (used during installation)
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/Solarmax64/Reset_Syncthing_on_Pi.git
+cd Reset_Syncthing_on_Pi
+chmod +x reset-syncthing.sh
+```
+
+### Download Without Git
+
+If `git` is not installed, you can download the script directly:
+
+```bash
+curl -LO https://github.com/Solarmax64/Reset_Syncthing_on_Pi/archive/refs/heads/main.tar.gz
+tar xzf main.tar.gz
+cd Reset_Syncthing_on_Pi-main
+chmod +x reset-syncthing.sh
+```
 
 ## Quick Start
 
