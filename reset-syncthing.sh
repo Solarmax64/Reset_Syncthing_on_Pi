@@ -17,7 +17,7 @@
 #
 set -euo pipefail
 
-readonly VERSION="1.0.0"
+readonly SCRIPT_VERSION="1.0.0"
 readonly SCRIPT_NAME="$(basename "$0")"
 readonly DEFAULT_CONFIG_DIR="/etc/reset-syncthing"
 readonly DEFAULT_CONFIG_FILE="${DEFAULT_CONFIG_DIR}/config.conf"
@@ -278,7 +278,7 @@ parse_args() {
             -h|--help)
                 show_help; exit 0 ;;
             -V|--version)
-                echo "${SCRIPT_NAME} v${VERSION}"; exit 0 ;;
+                echo "${SCRIPT_NAME} v${SCRIPT_VERSION}"; exit 0 ;;
             -n|--dry-run)
                 DRY_RUN="true"; shift ;;
             -y|--yes)
@@ -471,7 +471,7 @@ init_logging() {
             log_warn "Cannot write to ${LOG_FILE}. Disabling file logging."
             NO_LOG="true"
         }
-        log_info "--- ${SCRIPT_NAME} v${VERSION} started at $(date) ---"
+        log_info "--- ${SCRIPT_NAME} v${SCRIPT_VERSION} started at $(date) ---"
     fi
 }
 
@@ -774,7 +774,7 @@ User=${PI_USER}
 Group=${PI_USER}
 Environment=STGUIADDRESS=${GUI_BIND}
 ExecStart=
-ExecStart=/usr/bin/syncthing serve -no-browser -home=${ST_HOME} -gui-address=${GUI_BIND}
+ExecStart=/usr/bin/syncthing serve --no-browser --home=${ST_HOME} --gui-address=${GUI_BIND}
 EOF
 
     log_info "Enabling and starting syncthing@${PI_USER}.service..."
@@ -897,7 +897,7 @@ main() {
     derive_paths
     init_logging
 
-    log_info "Starting Syncthing reset (v${VERSION})"
+    log_info "Starting Syncthing reset (v${SCRIPT_VERSION})"
     log_info "Target user: ${PI_USER}, Platform: ${OS_ID} (${OS_VERSION_CODENAME})"
 
     if [[ "${DRY_RUN}" == "true" ]]; then

@@ -1,0 +1,2 @@
+# Always store and check out shell scripts with LF line endings
+*.sh text eol=lf
